@@ -4,32 +4,38 @@ social share lib for windows phone
 social sharing for windows phone. Including Weibo, Tencent Weibo, Renren and QQZone and others maybe supported in future.
 
 ##Features##
-saving your time sharing things to social using this sdk. 
+saving your time sharing things to social using this sdk. Currently support following social networks:
+
+- [Sina weibo](http://open.weibo.com  "weibo")
+- [Tencent Weibo](http://dev.open.t.qq.com "tencent weibo")
+- [Renren](http://dev.renren.com/  "renren")
 
 ## How to Use? ##
 1. download proper dll and add dll reference to your main windows phone project.
 2. define global variables in App.xaml.cs file
-
 ```C#
-/// <summary>
-/// current socail type
-/// </summary>
-public static SocialType CurrentSocialType { get; set; }
-
-/// <summary>
-/// if login from account page, then we should goback
-/// </summary>
-public static bool IsLoginGoBack { get; set; }
-
-/// <summary>
-/// shared text
-/// </summary>
-public static string Statues { get; set; }
-
-/// <summary>
-/// shared image
-/// </summary>
-public static WriteableBitmap ShareImage { get; set; }
+public class App
+{
+	/// <summary>
+	/// current socail type
+	/// </summary>
+	public static SocialType CurrentSocialType { get; set; }
+	
+	/// <summary>
+	/// if login from account page, then we should goback
+	/// </summary>
+	public static bool IsLoginGoBack { get; set; }
+	
+	/// <summary>
+	/// shared text
+	/// </summary>
+	public static string Statues { get; set; }
+	
+	/// <summary>
+	/// shared image
+	/// </summary>
+	public static WriteableBitmap ShareImage { get; set; }
+}
 ```
 3. add new Class named Constants, and fill social keys and secrets in this Class
 ```C#
@@ -62,16 +68,16 @@ public class Constants
     }
 }
 ```
-4. add authorize page named 'SocialLoginPage.xaml' to place auth control. XAML looks like:
-```C#
+4. add authorize page named `SocialLoginPage.xaml` to place auth control. XAML looks like:
+```XAML
 <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
        
     </Grid>
 ```
-5. add following method in SocialLoginPage.xaml.cs and call it in page constructor:
+5. add following method in `SocialLoginPage.xaml.cs` and call it in page constructor:
 ```C#
-rivate void LoadLoginControl()
+private void LoadLoginControl()
 {
     AuthControl control = new AuthControl();
     var type = App.CurrentSocialType;
@@ -100,7 +106,7 @@ rivate void LoadLoginControl()
     this.LayoutRoot.Children.Add(control);
 }
 ```
-6. overwrite page OnNavigatedFrom event to clear history stack page.
+6. overwrite page `OnNavigatedFrom` event to clear history stack page.
 ```C#
 protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
 {
@@ -125,7 +131,7 @@ private void Send()
     ApplicationBar.IsVisible = false;
 
     grid.Visibility = System.Windows.Visibility.Visible;
-    tbk_busy.Text = "正在发送...";
+    tbk_busy.Text = "sending...";
     if (sb_busy != null)
     {
         sb_busy.Begin();
@@ -140,7 +146,7 @@ private void Send()
             grid.Visibility = System.Windows.Visibility.Collapsed;
             if (isSuccess)
             {
-                MessageBox.Show("发送成功");
+                MessageBox.Show("success");
                 if (NavigationService.CanGoBack)
                 {
                     NavigationService.GoBack();
@@ -148,13 +154,13 @@ private void Send()
             }
             else
             {
-                MessageBox.Show("分享失败");
+                MessageBox.Show("failed");
             }
         });
     });
 }
 ```
-8. If you want your user to manage their social accounts, you can also add an account management page named 'AccountPage.xaml'
+8. If you want your user to manage their social accounts, you can also add an account management page named `AccountPage.xaml`
 ```C#
 <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
@@ -176,12 +182,6 @@ public AccountPage()
 
 You can view full source code in this demo app.
 
-## ##
 
-
-- [Sina weibo](http://open.weibo.com  "weibo")
-- [Tencent Weibo](http://dev.open.t.qq.com "tencent weibo")
-- [Renren](http://dev.renren.com/  "renren")
-
-
+## Contact me ##
 If you have any question, please contact me via [Weibo](http://weibo.com/xshf12345) or [Twitter](https://twitter.com/alexis_cn). 
