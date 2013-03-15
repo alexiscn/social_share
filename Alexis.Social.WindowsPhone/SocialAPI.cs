@@ -49,7 +49,7 @@ namespace Alexis.WindowsPhone.Social
     public class SocialAPI
     {
         #region Public
-
+        
         public static string ShareStatus { get; set; }
 
         public static SocialType CurrentSocialType { get; set; }
@@ -259,21 +259,10 @@ namespace Alexis.WindowsPhone.Social
                         }
                     }
                 }
-                else//image do not exists
+                else
                 {
-                    var stream = Application.GetResourceStream(new Uri("/Alexis.WindowsPhone.Social;component/Images/xiamilogo.jpg", UriKind.Relative)).Stream;
-                    byte[] bytes = new byte[stream.Length];
-                    stream.Read(bytes, 0, bytes.Length);
-                    if (type == SocialType.Renren)
-                    {
-                        uploader.parameters.Add("upload", bytes);
-                    }
-                    else
-                    {
-                        uploader.parameters.Add("pic", bytes);
-                    }
-                    stream.Close();
-                    stream.Dispose();
+                    //image do not exists
+                    //TODO
                 }
             }
             uploader.Submit();

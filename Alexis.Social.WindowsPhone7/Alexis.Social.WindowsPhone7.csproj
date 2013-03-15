@@ -92,6 +92,7 @@
       <Link>Resources\Lang.cs</Link>
     </Compile>
     <Compile Include="..\Alexis.Social.WindowsPhone\Resources\LangResource.Designer.cs">
+      <Link>Resources\LangResource.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LangResource.resx</DependentUpon>

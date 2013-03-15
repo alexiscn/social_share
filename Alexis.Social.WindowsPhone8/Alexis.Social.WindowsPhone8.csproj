@@ -83,7 +83,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-	<Compile Include="..\Alexis.Social.WindowsPhone\AccessToken.cs">
+    <Compile Include="..\Alexis.Social.WindowsPhone\AccessToken.cs">
       <Link>AccessToken.cs</Link>
     </Compile>
     <Compile Include="..\Alexis.Social.WindowsPhone\Controls\AccountControl.xaml.cs">
@@ -123,6 +123,7 @@
       <Link>Resources\Lang.cs</Link>
     </Compile>
     <Compile Include="..\Alexis.Social.WindowsPhone\Resources\LangResource.Designer.cs">
+      <Link>Resources\LangResource.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LangResource.resx</DependentUpon>
