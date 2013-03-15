@@ -1,0 +1,80 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="SocialSDKDemo.SocialSendPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="sb_busy">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-90"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--TitlePanel contains the name of the application and page title-->
+            <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,12">
+                <TextBlock x:Name="ApplicationTitle" Style="{StaticResource PhoneTextNormalStyle}"/>
+            </StackPanel>
+
+            <!--ContentPanel - place additional content here-->
+            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+               
+                <TextBox Height="200"
+                                  Grid.Row="0"
+                                  Text="{Binding Status,Mode=TwoWay}"
+                                  TextWrapping="Wrap"
+                                  x:Name="ptb_status"/>
+                <ScrollViewer Grid.Row="1">
+                <StackPanel>
+                    
+                    <Image x:Name="deleteImg" Source="delete.png" Height="64" Width="64" Tap="Image_Tap"  Margin="360,0,0,-34"/>
+                    <Border x:Name="border" BorderBrush="White" BorderThickness="3"  Height="400" Width="400">
+                        <Image x:Name="img" Grid.Row="1" VerticalAlignment="Top" Stretch="UniformToFill" Width="400" />
+
+                    </Border>
+                   
+                </StackPanel></ScrollViewer>
+               
+            </Grid>
+        </Grid>
+        <Grid x:Name="grid" Visibility="Collapsed" Width="480" Height="768" Background="#E6000000">
+            <Grid.Projection>
+                <PlaneProjection/>
+            </Grid.Projection>
+            <TextBlock x:Name="tbk_busy" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="32" Foreground="{StaticResource PhoneForegroundBrush}" />
+        </Grid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/appbar.check.rest.png" Text="发送" Click="Appbar_Send_Click"/>            
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Alexis.WindowsPhone.Social.AuthControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot">
+        
+        <phone:WebBrowser x:Name="webbrowser" 
+                          IsScriptEnabled="True" 
+                          Navigating="BrowserNavigating" 
+                          LoadCompleted="BrowserLoadCompleted"/>
+        <Grid x:Name="grdLoading">
+            <Image x:Name="imgLogo" Width="135" Height="96"/>
+            <TextBlock Text="loading...." Foreground="{StaticResource PhoneAccentBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0" FontSize="28"/>
+        </Grid>
+    </Grid>
+</UserControl>

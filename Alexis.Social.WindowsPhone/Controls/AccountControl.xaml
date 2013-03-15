@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="Alexis.WindowsPhone.Social.AccountControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Alexis.WindowsPhone.Social"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <UserControl.Resources>
+        <local:Lang x:Key="Language" />
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Alexis.WindowsPhone.Social;component/Images/weibo.png" />
+        <StackPanel Grid.Column="1">
+            <TextBlock x:Name="tbkWeibo" Margin="12,0,0,0" />
+            <Button x:Name="btnWeibo" Content="{Binding Language.BindWeibo,Source={StaticResource Language}}" Click="btnWeibo_Click" Width="200" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+
+        <Image Grid.Row="1" Margin="0,20,0,0" Source="/Alexis.WindowsPhone.Social;component/Images/tencent.png" />
+        <StackPanel Grid.Row="1" Margin="0,20,0,0" Grid.Column="1">
+            <TextBlock x:Name="tbkTencent" Margin="12,0,0,0"/>
+            <Button x:Name="btnTencent" Content="{Binding Language.BindTencent,Source={StaticResource Language}}" Click="btnTencent_Click" Width="200" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <Image Grid.Row="2" Margin="0,20,0,0" Source="/Alexis.WindowsPhone.Social;component/Images/renren.png" />
+        <StackPanel Grid.Row="2" Margin="0,20,0,0" Grid.Column="1">
+            <TextBlock x:Name="tbkRenren" Margin="12,0,0,0"/>
+            <Button x:Name="btnRenren" Content="{Binding Language.BindRenren,Source={StaticResource Language}}" Click="btnRenren_Click" Width="200" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <Image Grid.Row="3" Margin="0,20,0,0" Source="/Alexis.WindowsPhone.Social;component/Images/qzone.png" />
+        <StackPanel Grid.Row="3" Margin="0,20,0,0" Grid.Column="1">
+            <TextBlock x:Name="tbkQzone" Margin="12,0,0,0"/>
+            <Button x:Name="btnQZone" Content="{Binding Language.BindQzone,Source={StaticResource Language}}" Click="btnQZone_Click" Width="200" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E5805EFA-1286-4B92-9339-022065BDB3C1}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alexis.WindowsPhone.Social</RootNamespace>
+    <AssemblyName>Alexis.WindowsPhone.Social</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="System.Servicemodel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Alexis.Social.WindowsPhone\AccessToken.cs">
+      <Link>AccessToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Controls\AccountControl.xaml.cs">
+      <Link>Controls\AccountControl.xaml.cs</Link>
+      <DependentUpon>AccountControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Controls\AuthControl.xaml.cs">
+      <Link>Controls\AuthControl.xaml.cs</Link>
+      <DependentUpon>AuthControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Controls\ShareControl.xaml.cs">
+      <Link>Controls\ShareControl.xaml.cs</Link>
+      <DependentUpon>ShareControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Helper\HttpUploader.cs">
+      <Link>Helper\HttpUploader.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Helper\JsonHelper.cs">
+      <Link>Helper\JsonHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Helper\MD5Encry.cs">
+      <Link>Helper\MD5Encry.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Helper\QueryStringHelper.cs">
+      <Link>Helper\QueryStringHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Renren\APIParameter.cs">
+      <Link>Renren\APIParameter.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Renren\RenrenAccessToken.cs">
+      <Link>Renren\RenrenAccessToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Renren\RenrenUser.cs">
+      <Link>Renren\RenrenUser.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Resources\Lang.cs">
+      <Link>Resources\Lang.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Resources\LangResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\SocialAPI.cs">
+      <Link>SocialAPI.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\SocialKit.cs">
+      <Link>SocialKit.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Tencent\TResponse.cs">
+      <Link>Tencent\TResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Weibo\SuggestionUser.cs">
+      <Link>Weibo\SuggestionUser.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Weibo\WeiboAccessToken.cs">
+      <Link>Weibo\WeiboAccessToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Weibo\WeiboUser.cs">
+      <Link>Weibo\WeiboUser.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Alexis.Social.WindowsPhone\Images\qzone.png">
+      <Link>Images\qzone.png</Link>
+    </Resource>
+    <Resource Include="..\Alexis.Social.WindowsPhone\Images\renren.png">
+      <Link>Images\renren.png</Link>
+    </Resource>
+    <Resource Include="..\Alexis.Social.WindowsPhone\Images\tencent.png">
+      <Link>Images\tencent.png</Link>
+    </Resource>
+    <Resource Include="..\Alexis.Social.WindowsPhone\Images\weibo.png">
+      <Link>Images\weibo.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="..\Alexis.Social.WindowsPhone\Controls\AccountControl.xaml">
+      <Link>Controls\AccountControl.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Alexis.Social.WindowsPhone\Controls\AuthControl.xaml">
+      <Link>Controls\AuthControl.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Alexis.Social.WindowsPhone\Controls\ShareControl.xaml">
+      <Link>Controls\ShareControl.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Alexis.Social.WindowsPhone\Resources\LangResource.en-US.resx">
+      <Link>Resources\LangResource.en-US.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Alexis.Social.WindowsPhone\Resources\LangResource.resx">
+      <Link>Resources\LangResource.resx</Link>
+      <LastGenOutput>LangResource.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Alexis.Social.WindowsPhone\Resources\LangResource.zh-TW.resx">
+      <Link>Resources\LangResource.zh-TW.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
