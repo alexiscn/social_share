@@ -13,8 +13,14 @@ saving your time sharing things to social using this sdk.
 
 ```C#
 public static SocialType CurrentSocialType { get; set; }
+
 public static bool IsLoginGoBack { get; set; }
+
 public static string Statues { get; set; }
+
+/// <summary>
+/// shared image
+/// </summary>
 public static WriteableBitmap ShareImage { get; set; }
 ```
  
