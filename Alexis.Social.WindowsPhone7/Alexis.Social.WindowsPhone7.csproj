@@ -106,6 +106,9 @@
     <Compile Include="..\Alexis.Social.WindowsPhone\Tencent\TResponse.cs">
       <Link>Tencent\TResponse.cs</Link>
     </Compile>
+    <Compile Include="..\Alexis.Social.WindowsPhone\Twitter\TwitterOauthClient.cs">
+      <Link>Twitter\TwitterOauthClient.cs</Link>
+    </Compile>
     <Compile Include="..\Alexis.Social.WindowsPhone\Weibo\SuggestionUser.cs">
       <Link>Weibo\SuggestionUser.cs</Link>
     </Compile>

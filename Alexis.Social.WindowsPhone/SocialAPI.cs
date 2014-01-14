@@ -44,6 +44,14 @@ namespace Alexis.WindowsPhone.Social
         /// QQ空间
         /// </summary>
         QZone,
+        /// <summary>
+        /// twitter
+        /// </summary>
+        Twitter,
+        /// <summary>
+        /// facebook
+        /// </summary>
+        Facebook
     }
 
     public class SocialAPI
@@ -84,7 +92,6 @@ namespace Alexis.WindowsPhone.Social
             }
         }
 
-
         private static AccessToken _tencentAccessToken;
         public static AccessToken TencentAccessToken
         {
@@ -120,6 +127,7 @@ namespace Alexis.WindowsPhone.Social
                 _renrenAccessToken = value;
             }
         }
+
         private static AccessToken _qzoneAccessToken;
         public static AccessToken QZoneAccessToken
         {
@@ -141,6 +149,10 @@ namespace Alexis.WindowsPhone.Social
         public static ClientInfo Client { get; set; }
         #endregion
 
+        /// <summary>
+        /// account logout, delete local cache and clear accesstoken
+        /// </summary>
+        /// <param name="type">social type</param>
         public static void LogOff(SocialType type)
         {
             if (MessageBox.Show(LangResource.LogOffConfirm, "", MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
@@ -177,6 +189,13 @@ namespace Alexis.WindowsPhone.Social
             });
         }
 
+        /// <summary>
+        /// send status with image
+        /// </summary>
+        /// <param name="type">social type</param>
+        /// <param name="status">text to send</param>
+        /// <param name="imgPath">imgPath in IsoStore</param>
+        /// <param name="action">send complete callback</param>
         public static void UploadStatusWithPic(SocialType type, string status, string imgPath, Action<bool, Exception> action)
         {
             HttpUploader uploader = new HttpUploader();
@@ -226,9 +245,20 @@ namespace Alexis.WindowsPhone.Social
                     {
                         uploader.url = "https://graph.qq.com/share/add_share";
                         uploader.parameters.Add("title", status);
-                        uploader.parameters.Add("title", "");
-                        uploader.parameters.Add("title", "");
-                        uploader.parameters.Add("title", "");
+                        uploader.parameters.Add("oauth_consumer_key", Client.ClientId);
+                        uploader.parameters.Add("format", "json");
+                    }
+                    break;
+                case SocialType.Twitter:
+                    {
+                        uploader.url = "https://api.twitter.com/1.1/statuses/update_with_media";
+                        uploader.parameters.Add("status", status);
+
+                    }
+                    break;
+                case SocialType.Facebook:
+                    {
+
                     }
                     break;
                 case SocialType.Douban:
@@ -284,9 +314,9 @@ namespace Alexis.WindowsPhone.Social
         /// 史坤
         /// 2012.7.4
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="status"></param>
-        /// <param name="action"></param>
+        /// <param name="type">social type</param>
+        /// <param name="status">text to send</param>
+        /// <param name="action">send complete callback</param>
         public static void UpdateStatus(SocialType type, string status, Action<bool, Exception> action)
         {
             HttpUpdate uploader = new HttpUpdate();
@@ -340,10 +370,18 @@ namespace Alexis.WindowsPhone.Social
                     break;
                 case SocialType.QZone:
                     {
+                        // not finished
                         uploader.url = "https://graph.qq.com/share/add_share";
                         uploader.parameters.Add("title", status);
                         uploader.parameters.Add("site", status);
                         uploader.parameters.Add("fromurl", status);
+                    }
+                    break;
+                case SocialType.Twitter:
+                    {
+                        uploader.url = "https://api.twitter.com/1.1/statuses/update";
+                        uploader.parameters.Add("status", status);
+
                     }
                     break;
                 case SocialType.Douban:

@@ -15,7 +15,7 @@ namespace Alexis.WindowsPhone.Social
     public partial class AuthControl : UserControl
     {
         public Action<AccessToken> action;
-        private SocialType currentType= SocialType.Weibo;
+        private SocialType currentType = SocialType.Weibo;
         private ClientInfo client;
 
         /// <summary>
@@ -42,15 +42,26 @@ namespace Alexis.WindowsPhone.Social
             {
                 path = "/Alexis.WindowsPhone.Social;component/Images/renren.png";
             }
-            else if (type== SocialType.QZone)
+            else if (type == SocialType.QZone)
             {
                 path = "/Alexis.WindowsPhone.Social;component/Images/qzone.png";
+            }
+            else if (type == SocialType.Twitter)
+            {
+
             }
             this.imgLogo.Source = new BitmapImage { UriSource = new Uri(path, UriKind.Relative) };
             SocialAPI.Client = client;
             this.client = client;
             currentType = type;
-            webbrowser.Source = new Uri(SocialKit.GetAuthorizeUrl(currentType, client), UriKind.Absolute);
+            if (type== SocialType.Twitter)
+            {
+                
+            }
+            else
+            {
+                webbrowser.Source = new Uri(SocialKit.GetAuthorizeUrl(currentType, client), UriKind.Absolute);
+            }            
         }
 
         private void BrowserNavigating(object sender, NavigatingEventArgs e)
@@ -69,18 +80,18 @@ namespace Alexis.WindowsPhone.Social
             if (!e.Uri.AbsoluteUri.Contains("code=") && !e.Uri.AbsoluteUri.Contains("code ="))
             {
                 return;
-            }            
+            }
             var arguments = e.Uri.AbsoluteUri.Split('?');
-            string code  = arguments[1]; 
-            if (currentType== SocialType.Tencent)
+            string code = arguments[1];
+            if (currentType == SocialType.Tencent)
             {
                 var sp = arguments[1].Split('&');
                 code = sp[0];
 
                 //open id
-                client.Tag = sp[1].Split('=')[1]; 
-            }          
-            
+                client.Tag = sp[1].Split('=')[1];
+            }
+
             SocialKit.GetToken(currentType, client, code, (p) =>
             {
                 action(p);

@@ -54,6 +54,15 @@ namespace Alexis.WindowsPhone.Social
                     }
                     url = "https://openmobile.qq.com/oauth2.0/m_authorize?response_type=token&client_id=" + client.ClientId + "&redirect_uri=" + client.RedirectUri + "&display=mobile";
                     break;
+                case SocialType.Twitter:
+                    if (string.IsNullOrEmpty(client.RedirectUri))
+                    {
+                        
+                    }
+                    url = "";
+                    break;
+                case SocialType.Facebook:
+                    break;
                 case SocialType.Douban:
                     break;
                 case SocialType.Net:
@@ -105,6 +114,11 @@ namespace Alexis.WindowsPhone.Social
                     break;
             }
             return url;
+        }
+
+        internal static void GetTwitterRequestToken()
+        {
+            
         }
 
         internal static void GetToken(SocialType type, ClientInfo client, string code, Action<AccessToken> action)
