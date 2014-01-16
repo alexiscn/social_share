@@ -3,13 +3,19 @@ social share lib for windows phone
 
 Social sharing for windows phone. Including Weibo, Tencent Weibo, Renren and QQZone and others maybe supported in future.
 
+##What's in todo list#
+
+- [Twitter](http://wwww.twitter.com "twitter")
+- [Facebook](http://www.facebook.com "Facebook")
+- [QZone](http://connect.qq.com "qzone")
+
 ##Features##
 Saving your time sharing things(**text** or **image** or **both text and image**) to social using this sdk. Currently support following social networks:
 
 - [Sina weibo](http://open.weibo.com  "weibo")
 - [Tencent Weibo](http://dev.open.t.qq.com "tencent weibo")
 - [Renren](http://dev.renren.com/  "renren")
-- [QZone-**todo**](http://connect.qq.com "qzone")
+
 
 Social Share use WebBrowser control to handle oauth2 authorizes and provides some useful  usercontrol like: 
 
